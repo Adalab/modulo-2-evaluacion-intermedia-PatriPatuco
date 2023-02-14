@@ -5,7 +5,7 @@ const buttonTry = document.querySelector(".js-button-try");
 const errorMessage = document.querySelector(".js-error-message");
 const numberTip = document.querySelector(".js-in-tip");
 const numberTries = document.querySelector(".js-in-tries");
-const triesCount = 0;
+let triesCount = 0;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -26,14 +26,12 @@ function renderNumberTip() {
 }
 
 function renderNumberTries() {
-    const userNumberValue = parseInt(userNumber.value);
-    if (userNumberValue === randomNumber) {
-    numberTries.innerHTML += triesCount;
-  } else {
-    numberTries.innerHTML += triesCount++;
+  const userNumberValue = parseInt(userNumber.value);
+  if (userNumberValue !== randomNumber) {
+    triesCount++;
   }
+  numberTries.innerHTML = triesCount;
 }
-
 
 function handleButtonTry(event) {
   event.preventDefault();
