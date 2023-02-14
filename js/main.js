@@ -17,11 +17,11 @@ console.log(randomNumber);
 function renderNumberTip() {
   const userNumberValue = parseInt(userNumber.value);
   if (userNumberValue < randomNumber) {
-    numberTip.innerHTML = `Demasiado bajo`;
+    numberTip.innerHTML = `Pista: Demasiado bajo`;
   } else if (userNumberValue === randomNumber) {
     numberTip.innerHTML = `Has ganado campeona!!!`;
   } else {
-    numberTip.innerHTML = `Demasiado alto`;
+    numberTip.innerHTML = `Pista: Demasiado alto`;
   }
 }
 
@@ -30,7 +30,7 @@ function renderNumberTries() {
   if (userNumberValue !== randomNumber) {
     triesCount++;
   }
-  numberTries.innerHTML = triesCount;
+  numberTries.innerHTML = `Número de intentos: ${triesCount}`;
 }
 
 function handleButtonTry(event) {

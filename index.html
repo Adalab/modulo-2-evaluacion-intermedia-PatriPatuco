@@ -9,25 +9,26 @@
     <link rel="stylesheet" href="./css/style.css"/>
   </head>
   <body>
-    <form action="">
-      <fieldset class="user-section">
-        <legend class="title">Adivina el número</legend>
-        <label for="user-number">Introduce aquí tu número</label>
-        <input
-          id="user-number"
-          type="number"
-          class="input-number js-in-number"
-          required
-        />
-        <p class="js-error-message"></p>
-        <input type="button" value="Prueba" class="button-try js-button-try" />
-      </fieldset>
-    </form>
-
-    <section class="tips-section">
-      <p class="js-in-tip">Pista: Escribe el número y dale la vuelta</p>
-      <p class="js-in-tries">Número de intentos:</p>
-    </section>
+    <main class="main">
+        <form action="">
+          <fieldset class="user-section">
+            <legend class="title">Adivina el número</legend>
+            <label for="user-number">Introduce aquí tu número</label>
+            <input
+              id="user-number"
+              type="number"
+              class="input-number js-in-number"
+              required
+            />
+            <p class="error-message js-error-message"></p>
+            <input type="button" value="Prueba" class="button-try js-button-try" />
+          </fieldset>
+        </form>
+        <section class="tips-section">
+          <p class="tip-paragraph js-in-tip">Pista: Escribe el número y dale la vuelta</p>
+          <p class="tries-paragraph js-in-tries">Número de intentos: 0</p>
+        </section>
+    </main>
 
     <script src="./js/main.js"></script>
   </body>
