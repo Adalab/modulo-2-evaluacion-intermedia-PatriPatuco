@@ -11,21 +11,34 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-function setRandomNumber () {
-    const randomNumber = getRandomNumber(100);
-    console.log(setRandomNumber);
+const randomNumber = getRandomNumber(100);
+console.log(randomNumber);
+
+function renderNumberTry() {
+    const userNumberValue = parseInt(userNumber.value);
+    const numberTipValue = numberTip.value;
+    if (userNumberValue < randomNumber) {
+      numberTipValue.innerHTML = "Demasiado bajo";
+    } else if (userNumberValue === randomNumber) {
+      numberTipValue.innerHTML = "Has ganado campeona!!!";
+    } else {
+      numberTipValue.innerHTML = "Demasiado alto";
+    }
 }
 
 
 
 function handleButtonTry(event) {
-    event.preventDefault();
-    if (userNumber === "" || userNumber > 100 || userNumber < 0) {
-        errorMessage.innerHTML = "El número debe estar entre 1 y 100"
-    } else {
-
-    }
-
+  event.preventDefault();
+  if (
+    userNumber.value === "" ||
+    userNumber.value > 100 ||
+    userNumber.value < 0
+  ) {
+    errorMessage.innerHTML = `El número debe estar entre 1 y 100`;
+  } else {
+    renderNumberTry();
+  }
 }
 
 buttonTry.addEventListener("click", handleButtonTry);
