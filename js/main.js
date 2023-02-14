@@ -1,11 +1,11 @@
-'use strict'
+"use strict";
 
 const userNumber = document.querySelector(".js-in-number");
 const buttonTry = document.querySelector(".js-button-try");
 const errorMessage = document.querySelector(".js-error-message");
 const numberTip = document.querySelector(".js-in-tip");
 const numberTries = document.querySelector(".js-in-tries");
-
+const triesCount = 0;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -14,18 +14,25 @@ function getRandomNumber(max) {
 const randomNumber = getRandomNumber(100);
 console.log(randomNumber);
 
-function renderNumberTry() {
-    const userNumberValue = parseInt(userNumber.value);
-    const numberTipValue = numberTip.value;
-    if (userNumberValue < randomNumber) {
-      numberTipValue.innerHTML = "Demasiado bajo";
-    } else if (userNumberValue === randomNumber) {
-      numberTipValue.innerHTML = "Has ganado campeona!!!";
-    } else {
-      numberTipValue.innerHTML = "Demasiado alto";
-    }
+function renderNumberTip() {
+  const userNumberValue = parseInt(userNumber.value);
+  if (userNumberValue < randomNumber) {
+    numberTip.innerHTML = `Demasiado bajo`;
+  } else if (userNumberValue === randomNumber) {
+    numberTip.innerHTML = `Has ganado campeona!!!`;
+  } else {
+    numberTip.innerHTML = `Demasiado alto`;
+  }
 }
 
+function renderNumberTries() {
+    const userNumberValue = parseInt(userNumber.value);
+    if (userNumberValue === randomNumber) {
+    numberTries.innerHTML += triesCount;
+  } else {
+    numberTries.innerHTML += triesCount++;
+  }
+}
 
 
 function handleButtonTry(event) {
@@ -37,7 +44,8 @@ function handleButtonTry(event) {
   ) {
     errorMessage.innerHTML = `El número debe estar entre 1 y 100`;
   } else {
-    renderNumberTry();
+    renderNumberTip();
+    renderNumberTries();
   }
 }
 
